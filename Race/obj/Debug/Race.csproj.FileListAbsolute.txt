@@ -1,0 +1,7 @@
+C:\Users\Janko\source\repos\Race\Race\bin\Debug\Race.exe.config
+C:\Users\Janko\source\repos\Race\Race\bin\Debug\Race.exe
+C:\Users\Janko\source\repos\Race\Race\bin\Debug\Race.pdb
+C:\Users\Janko\source\repos\Race\Race\obj\Debug\Race.csproj.AssemblyReference.cache
+C:\Users\Janko\source\repos\Race\Race\obj\Debug\Race.csproj.CoreCompileInputs.cache
+C:\Users\Janko\source\repos\Race\Race\obj\Debug\Race.exe
+C:\Users\Janko\source\repos\Race\Race\obj\Debug\Race.pdb
