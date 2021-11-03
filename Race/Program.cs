@@ -8,78 +8,69 @@ namespace Race
 {
 	class Program
 	{
-		public const int INF = 99999;
+		public const int INF = int.MaxValue;
 		static void Main(string[] args)
 		{
 
-			int vertices = 4;
-			int[,] matrix = {
-				{ 0, 0, -2, 0},
-				{ 4, 0, 3, 0 },
-				{ 0, 0, 0, 2 },
-				{ 0, -1, 0, 0}
-			};
-
-			// Initialization
-			Graph graph = new Graph(vertices, matrix);
-		
-			// Function Call
-			int[][] distances = graph.johnsons();
-
-			if (distances == null)
+			int[,] adjacency_matrix;
+			int number_of_vertices;
+			var scan = "Inputs";
+			try
 			{
-				Console.WriteLine(
-					"Negative weight cycle detected.");
-				return;
+				Console.WriteLine("Enter the number of vertices");
+				//number_of_vertices = (int)Convert.ToInt64(Console.ReadLine());
+				number_of_vertices = 4;
+				adjacency_matrix = new int[number_of_vertices + 1, number_of_vertices + 1];
+				//Console.WriteLine("Enter the Weighted Matrix for the graph");
+				//for (var i = 1; i <= number_of_vertices; i++)
+				//{
+				//	for (var j = 1; j <= number_of_vertices; j++)
+				//	{
+				//		adjacency_matrix[i, j] = (int)Convert.ToInt64(Console.ReadLine());
+				//		if (i == j)
+				//		{
+				//			adjacency_matrix[i, j] = 0;
+				//			continue;
+				//		}
+				//		if (adjacency_matrix[i, j] == 0)
+				//		{
+				//			adjacency_matrix[i, j] = JohnsonsAlgorithm.MAX_VALUE;
+				//		}
+				//	}
+				//}
+			int[,] adjacency_matrixs =  {
+					{ 0,   5,  INF, 10 },
+            { INF, 0,   3, INF },
+            { INF, INF, 0,   1 },
+            { INF, INF, INF, 0 }
+				};
+				var johnsonsAlgorithm = new JohnsonsAlgorithm(number_of_vertices);
+				johnsonsAlgorithm.johnsonsAlgorithms(adjacency_matrixs);
+			}
+			catch (Exception e)
+			{
+
 			}
 
-			// The code fragment below outputs
-			// an formatted distance matrix.
-			// Its first row and first
-			// column represent vertices
-			Console.WriteLine("Distance matrix:");
 
-			Console.Write("   \t");
-			for (int i = 0; i < vertices; i++)
-				Console.Write($"{i}\t", i);
+            //int[,] graphFloyd = {
+            //{ 0,   5,  INF, 10 },
+            //{ INF, 0,   3, INF },
+            //{ INF, INF, 0,   1 },
+            //{ INF, INF, INF, 0 }
+            //};
 
-			for (int i = 0; i < vertices; i++)
-			{
-				Console.WriteLine();
-				Console.Write($"{i}\t", i);
-				for (int j = 0; j < vertices; j++)
-				{
-					if (distances[i][j] == int.MaxValue)
-					{
-
-						Console.Write("X\t");
-					}
-
-					else
-					{
-						Console.Write($"{distances[i][j]}\t");
+            //	FloydWarshall(graphFloyd, 4);
 
 
-					}
-
-
-					//	int[,] graphFloyd = {
-					//{ 0,   5,  INF, 10 },
-					//{ INF, 0,   3, INF },
-					//{ INF, INF, 0,   1 },
-					//{ INF, INF, INF, 0 }
-					//};
-
-					//	FloydWarshall(graphFloyd, 4);
-
-
-					Console.ReadLine();
+            Console.ReadLine();
 					//}
 
 
 
-				}
-			}
+				
+			
+
 		}
 		public static void FloydWarshall(int[,] graph, int verticesCount)
 		{
